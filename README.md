@@ -8,7 +8,7 @@ $ npm i
 
 $ npm start
 
-# prod
+### prod
 $ docker-compose build
 
 $ docker-compose up -d

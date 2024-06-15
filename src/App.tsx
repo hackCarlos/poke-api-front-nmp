@@ -11,7 +11,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Login></Login>} />
       <Route path="/register" element={<Register></Register>} /> 
-      { localStorage.getItem('access_token') ? <Route path="/profile" element={<Profile></Profile>} /> : <Navigate to={"/"}></Navigate> }
+      <Route path="/profile" element={<Profile></Profile>} />
     </Routes>
   </Router>
 );

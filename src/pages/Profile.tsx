@@ -23,13 +23,16 @@ const Profile: React.FC = () => {
   const idUser = localStorage.getItem('idUser')
 
   useEffect(() => {
-    setGeolocation(localStorage.getItem('location'))
     axios.get<UserProfile>(
       `${REACT_APP_BACKEND_SERVER}/users/${idUser}`,
       { headers: { Authorization: `Bearer ${access_token}`}}
     )
     .then(response => {
       setUser(response.data);
+      const { lattitude, longitude } = response.data.geolocation
+      setGeolocation(`${lattitude}, ${longitude}`)
+      localStorage.setItem('location', `${lattitude},${longitude}`) 
+
       setPokemons(response.data.pokemons);
     })
     .catch(error => {

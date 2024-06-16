@@ -3,7 +3,7 @@ export interface UserProfile {
     email: string;
     birthdate: string;
     location: string;
-    geolocation: string;
+    geolocation: {lattitude: number, longitude: number};
     password: string;
     pokemons: string[];
     isAdmin: boolean;
